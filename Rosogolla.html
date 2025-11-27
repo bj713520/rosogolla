@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise for My Cute Girlfriend</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffe6f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s ease;
+    }
+
+    .hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .card {
+        background: #fff0f6;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        padding: 40px;
+        text-align: center;
+        max-width: 400px;
+    }
+
+    h1 {
+        color: #ff3366;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #ff6699;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        background: #ff6699;
+        color: white;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff3366;
+    }
+
+    /* Hearts animation */
+    .heart {
+        position: absolute;
+        color: #ff3366;
+        font-size: 24px;
+        animation: float 3s linear infinite;
+        opacity: 0;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0) scale(0.5); opacity: 1; }
+        100% { transform: translateY(-500px) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div id="page1" class="page">
+    <div class="card">
+        <p>Hey রসগোল্লা, তোমাকে কিছু বলতে চাই…</p>
+        <button onclick="showPage2()">Open</button>
+    </div>
+</div>
+
+<!-- Page 2 -->
+<div id="page2" class="page hidden">
+    <div class="card">
+        <h1>💖 Surprise! 💖</h1>
+        <p>সত্যি তোমার চোখ গুলো খুব খুব সুন্দর। তোমাকে খুবই
+ সুন্দর দেখতে। <br> <br>
+
+কিছু সুন্দর মুহুর্ত আমাদের -  যখন আমরা একটা পকেটে হাত দি গাড়ি চালাতে চালাতে, খুব সুন্দর লাগে।<br><br>
+ 
+সত্যি বলতে - তোমার সাথে সময় কাটাতে খুব ভালো লাগে। 
+তুমি কি আমার সাথে সময় কাটাবে 7 দিন আমাদের মতো করে? 🌸</p>
+        <button onclick="resetPage()">Reset</button>
+    </div>
+</div>
+
+<script>
+function showPage2() {
+    document.getElementById('page1').classList.add('hidden');
+    document.getElementById('page2').classList.remove('hidden');
+    createHearts();
+}
+
+function resetPage() {
+    location.reload(); // fully refresh the page
+}
+
+function createHearts() {
+    for(let i = 0; i < 20; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '❤️';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+    }
+}
+</script>
+
+
+
+<!-- Background music -->
+<iframe width="0" height="0"
+    src="https://www.youtube.com/embed/QKyFheGmuvU?autoplay=1&loop=1&playlist=QKyFheGmuvU"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+
+
+
+
+</body>
+</html>
